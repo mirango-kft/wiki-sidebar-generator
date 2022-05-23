@@ -48,7 +48,7 @@ try {
     const root = ".";
     const excludedItems = [".git", "home.md", "_Sidebar.md", ...core.getMultilineInput('exclude')];
     console.log("Generating custom sidebar in current working directory");
-    console.log(`Exluding the following directories: ${excludedDirectories.join(",")}`);
+    console.log(`Exluding the following directories: ${excludedItems.join(",")}`);
 
     const items = getItems(root).filter(item => !excludedItems.includes(item.name))
     const content = ["[Home](./)"];
