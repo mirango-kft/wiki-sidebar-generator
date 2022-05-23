@@ -1,0 +1,9 @@
+name: 'Wiki Sidebar Generator'
+description: 'Automatically generates a custom sidebar for the GitHub Wiki'
+inputs:
+  exclude:
+    description: 'Exclude the following directories'
+    required: false
+runs:
+  using: 'node16'
+  main: 'index.js'
