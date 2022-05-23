@@ -51,7 +51,7 @@ try {
     console.log(`Exluding the following directories: ${excludedItems.join(",")}`);
 
     const items = getItems(root).filter(item => !excludedItems.includes(item.name))
-    const content = ["[Home](./)"];
+    const content = ["# [Home](./)"];
     for (const item of items) {
         mapItem(item, root, 0, content);
     }
