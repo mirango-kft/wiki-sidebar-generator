@@ -39,7 +39,7 @@ function mapItem(item, currentPath, depth = 0, result) {
             mapItem(childItem, itemPath, depth + 1, result);
         }
     } else if (item.isFile()) {
-        result.push(`${indent}- [${item.name}](${itemPath})`);
+        result.push(`${indent}- [${path.parse(item.name).name}](${itemPath})`);
     }
 }
 
