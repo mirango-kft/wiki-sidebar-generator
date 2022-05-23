@@ -39,18 +39,19 @@ function mapItem(item, currentPath, depth = 0, result) {
             mapItem(childItem, itemPath, depth + 1, result);
         }
     } else if (item.isFile()) {
-        result.push(`${indent}- [${path.parse(item.name).name}](${itemPath})`);
+        const fileName = path.parse(item.name).name;
+        result.push(`${indent}- [${fileName}](${fileName})`);
     }
 }
 
 try {
     const root = ".";
-    const excludedDirectories = [".git", ...core.getMultilineInput('exclude')];
+    const excludedItems = [".git", "home.md", "_Sidebar.md", ...core.getMultilineInput('exclude')];
     console.log("Generating custom sidebar in current working directory");
     console.log(`Exluding the following directories: ${excludedDirectories.join(",")}`);
 
-    const items = getItems(root).filter(item => !excludedDirectories.includes(item.name))
-    const content = [];
+    const items = getItems(root).filter(item => !excludedItems.includes(item.name))
+    const content = ["[Home](./)"];
     for (const item of items) {
         mapItem(item, root, 0, content);
     }
